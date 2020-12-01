@@ -316,7 +316,7 @@ namespace Foods
                     DDL_LedgerAcc.DataTextField = "SubHeadCategoriesName";
                     DDL_LedgerAcc.DataValueField = "SubHeadCategoriesGeneratedID";
                     DDL_LedgerAcc.DataBind();
-                    DDL_LedgerAcc.Items.Insert(0, new ListItem("--Select Expences--", "0"));
+                    DDL_LedgerAcc.Items.Insert(0, new ListItem("--Select Accounts--", "0"));
 
 
                     con.Close();
