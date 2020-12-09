@@ -579,6 +579,7 @@ namespace Foods
 
                         }
                     }
+                     
                 }
 
                 // for total 
@@ -602,8 +603,9 @@ namespace Foods
 
                 lbl_itmqty.Text = GV_POS.Rows.Count.ToString();
 
-                TBUnit.Focus();
-                TBUnit.Attributes.Add("onfocusin", "select();");
+                lnkbtnadd.Focus();
+                //TBUnit.Focus();
+                //TBUnit.Attributes.Add("onfocusin", "select();");
                 //AddNewRow();
 
             }
@@ -3380,6 +3382,12 @@ namespace Foods
 
                 #region For NM garments                
                 lblttls.Text = (Convert.ToDecimal(lblttls.Text.Trim()) - Convert.ToDecimal(TBDisc.Text.Trim())).ToString();
+
+                for (int i = 0; i < GV_POS.Rows.Count; i++)
+                {
+                    LinkButton lnkbtnadd = (LinkButton)GV_POS.Rows[i].Cells[6].FindControl("lnkbtnadd");
+                    lnkbtnadd.Focus();
+                }
                 #endregion
             }
             catch (Exception ex)
@@ -4011,9 +4019,11 @@ namespace Foods
                 //DropDownList ddlUnit = (DropDownList)GV_POS.Rows[i].Cells[1].FindControl("ddlUnit");
                 DropDownList ddlUnit = (DropDownList)GV_POS.Rows[i].Cells[1].FindControl("ddlUnit");
                 TextBox TBUnit = (TextBox)GV_POS.Rows[i].Cells[1].FindControl("TBUnit");
+                TextBox TBItmQty = (TextBox)GV_POS.Rows[i].Cells[4].FindControl("TBItmQty");
                
                 if (ddlUnit.SelectedValue != "0") {
                     TBUnit.Text = ddlUnit.SelectedValue;
+                    TBItmQty.Focus();
                 }
             }
         }
