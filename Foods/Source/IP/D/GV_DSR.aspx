@@ -86,7 +86,7 @@
                             </asp:TemplateField>  
                             <asp:TemplateField HeaderText="Total">
                                 <ItemTemplate>
-                                    <asp:Label ID="lbl_amt" runat="server" Text='<%# Eval("Amt")%>'></asp:Label>
+                                    <asp:Label ID="lbl_amt" runat="server" Text='<%# Eval("Total")%>'></asp:Label>
                                 </ItemTemplate>
                                 <FooterTemplate>
                                     <asp:Label ID="lblsh2" runat="server" Text="Total:" />&nbsp;&nbsp;&nbsp;<asp:Label ID="lblttlamt" runat="server" ></asp:Label>
@@ -94,7 +94,7 @@
                             </asp:TemplateField>                      
                             <asp:TemplateField HeaderText="Amount Recieve">
                                 <ItemTemplate>
-                                    <asp:Label ID="lbl_amts" runat="server" Text='<%# Eval("Adv")%>'></asp:Label>
+                                    <asp:Label ID="lbl_amts" runat="server" Text='<%# Eval("AmountRecieve")%>'></asp:Label>
                                 </ItemTemplate>
                                 <FooterTemplate>
                                     <asp:Label ID="lblsh" runat="server" Text="Total:" />&nbsp;&nbsp;&nbsp;<asp:Label ID="lbl_ttlamts" runat="server" ></asp:Label>
