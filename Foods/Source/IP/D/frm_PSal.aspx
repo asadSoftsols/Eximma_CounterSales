@@ -297,71 +297,74 @@
                                              
                                                         <div class="span8">
                                                             <div class="span12 scrollit_">
-                                                                <asp:GridView ID="GV_POS" ShowHeader="true" CssClass="table table-striped table-bordered span12" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false"  runat="server" OnRowCommand="GV_POS_RowCommand" OnRowDeleting="GV_POS_RowDeleting" OnDataBound="GV_POS_RowDataBound">
-                                                                <Columns>
-                                                                    <asp:TemplateField HeaderText="ITEMS" >  
-                                                                        <ItemTemplate>                                                                      
-                                                                            <asp:TextBox ID="TBItms"  runat="server" Text='<%# Eval("Items")%>'  ValidationGroup="val_Psal" style="width:50px; height:20px; float:left"  placeholder="Code" AutoPostBack="true" OnTextChanged="TBItms_TextChanged" ></asp:TextBox>                                                        
-                                                                            &nbsp;&nbsp;&nbsp;<asp:TextBox ID="TBItmdesc" runat="server" Text='<%# Eval("ItemDesc")%>' ValidationGroup="val_Psal" style=" width:100px; height:20px; float:right"  placeholder="Item Name" ></asp:TextBox>                                                        
-                                                                            <asp:AutoCompleteExtender ServiceMethod="Getpro" CompletionListCssClass="completionList"
-                                                                                CompletionListItemCssClass="listItem" CompletionListHighlightedItemCssClass="itemHighlighted" MinimumPrefixLength="1" 
-                                                                                CompletionInterval="10" EnableCaching="false" CompletionSetCount="10" TargetControlID="TBItms" ID="AutoCompleteExtender3"  
-                                                                                runat="server" FirstRowSelected="false"></asp:AutoCompleteExtender>
-                                                                            <asp:RequiredFieldValidator ID="RFVItms" ForeColor="Red" Font-Size="Smaller" ValidationGroup="val_Psal" runat="server" ErrorMessage="Please Write Some in Products" ControlToValidate="TBItms"></asp:RequiredFieldValidator>
-                                                                            <asp:Label ID="lblchkpro" ForeColor="Red"  Font-Size="X-Small" runat="server"></asp:Label>
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderText="Unit">
-                                                                        <ItemTemplate>
-                                                                            <asp:DropDownList runat="server" ID="ddlUnit" AutoPostBack="True" OnSelectedIndexChanged="ddlUnit_SelectedIndexChanged"></asp:DropDownList>
-                                                                            <asp:TextBox ID="TBUnit" runat="server" Text='<%# Eval("UNIT")%>' placeholder="Enter Units..." ValidationGroup="val_Psal" style="width:70px; height:20px;" AutoPostBack="true" OnTextChanged="TBUnit_TextChanged" ></asp:TextBox>
-                                                                            <asp:Label ID="lblchk_unt" runat="server" Text="0"  Visible="false"></asp:Label>
-                                                                            <asp:AutoCompleteExtender ServiceMethod="Getunts" CompletionListCssClass="completionList"
-                                                                                CompletionListItemCssClass="listItem" CompletionListHighlightedItemCssClass="itemHighlighted"
-                                                                                    MinimumPrefixLength="1" CompletionInterval="10" EnableCaching="false" CompletionSetCount="10" 
-                                                                                TargetControlID="TBUnit" ID="AutoCompleteExtender5"  
-                                                                                runat="server" FirstRowSelected="false"></asp:AutoCompleteExtender>                                                                           
-                                                                            <asp:RequiredFieldValidator ID="RFVUnts" ForeColor="Red" Font-Size="Smaller" ValidationGroup="val_Psal" runat="server" ErrorMessage="Please Write Some in Units" ControlToValidate="TBUnit"></asp:RequiredFieldValidator>
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderText="PRICE">
-                                                                        <ItemTemplate>
-                                                                            <asp:TextBox ID="tbsalpris" runat="server" Text='<%# Eval("salpric")%>' placeholder="Enter Price..." style="width:70px; height:20px;" AutoPostBack="true" OnTextChanged="tbsalpris_TextChanged" ></asp:TextBox>
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>                   
-                                                                    <asp:TemplateField HeaderText="QUANTITY">
-                                                                        <ItemTemplate>
-                                                                            <asp:TextBox ID="TBItmQty" runat="server" Text='<%# Eval("QTY")%>' placeholder="Enter Quantity..." ValidationGroup="val_Psal" style="width:70px; height:20px;" AutoPostBack="true" OnTextChanged="TBItmQty_TextChanged" ></asp:TextBox>
-                                                                            <asp:Label ID="lblchkqty" ForeColor="Red"  Font-Size="X-Small" runat="server"></asp:Label>
+                                                               
+                                                                        <asp:GridView ID="GV_POS" ShowHeader="true" CssClass="table table-striped table-bordered span12" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false"  runat="server" OnRowCommand="GV_POS_RowCommand" OnRowDeleting="GV_POS_RowDeleting" OnDataBound="GV_POS_RowDataBound">
+                                                                        <Columns>
+                                                                            <asp:TemplateField HeaderText="ITEMS" >  
+                                                                                <ItemTemplate>                                                                      
+                                                                                    <asp:TextBox ID="TBItms"  runat="server" Text='<%# Eval("Items")%>'  ValidationGroup="val_Psal" style="width:50px; height:20px; float:left"  placeholder="Code" AutoPostBack="true" OnTextChanged="TBItms_TextChanged" ></asp:TextBox>                                                        
+                                                                                    &nbsp;&nbsp;&nbsp;<asp:TextBox ID="TBItmdesc" runat="server" Text='<%# Eval("ItemDesc")%>' ValidationGroup="val_Psal" style=" width:100px; height:20px; float:right"  placeholder="Item Name" ></asp:TextBox>                                                        
+                                                                                    <asp:AutoCompleteExtender ServiceMethod="Getpro" CompletionListCssClass="completionList"
+                                                                                        CompletionListItemCssClass="listItem" CompletionListHighlightedItemCssClass="itemHighlighted" MinimumPrefixLength="1" 
+                                                                                        CompletionInterval="10" EnableCaching="false" CompletionSetCount="10" TargetControlID="TBItms" ID="AutoCompleteExtender3"  
+                                                                                        runat="server" FirstRowSelected="false"></asp:AutoCompleteExtender>
+                                                                                    <asp:RequiredFieldValidator ID="RFVItms" ForeColor="Red" Font-Size="Smaller" ValidationGroup="val_Psal" runat="server" ErrorMessage="Please Write Some in Products" ControlToValidate="TBItms"></asp:RequiredFieldValidator>
+                                                                                    <asp:Label ID="lblchkpro" ForeColor="Red"  Font-Size="X-Small" runat="server"></asp:Label>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
+                                                                            <asp:TemplateField HeaderText="Unit">
+                                                                                <ItemTemplate>
+                                                                                    <asp:DropDownList runat="server" ID="ddlUnit" AutoPostBack="True" OnSelectedIndexChanged="ddlUnit_SelectedIndexChanged"></asp:DropDownList>
+                                                                                    <asp:TextBox ID="TBUnit" runat="server" Text='<%# Eval("UNIT")%>' placeholder="Enter Units..." ValidationGroup="val_Psal" style="width:70px; height:20px;" AutoPostBack="true" OnTextChanged="TBUnit_TextChanged" ></asp:TextBox>
+                                                                                    <asp:Label ID="lblchk_unt" runat="server" Text="0"  Visible="false"></asp:Label>
+                                                                                    <asp:AutoCompleteExtender ServiceMethod="Getunts" CompletionListCssClass="completionList"
+                                                                                        CompletionListItemCssClass="listItem" CompletionListHighlightedItemCssClass="itemHighlighted"
+                                                                                            MinimumPrefixLength="1" CompletionInterval="10" EnableCaching="false" CompletionSetCount="10" 
+                                                                                        TargetControlID="TBUnit" ID="AutoCompleteExtender5"  
+                                                                                        runat="server" FirstRowSelected="false"></asp:AutoCompleteExtender>                                                                           
+                                                                                    <asp:RequiredFieldValidator ID="RFVUnts" ForeColor="Red" Font-Size="Smaller" ValidationGroup="val_Psal" runat="server" ErrorMessage="Please Write Some in Units" ControlToValidate="TBUnit"></asp:RequiredFieldValidator>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
+                                                                            <asp:TemplateField HeaderText="PRICE">
+                                                                                <ItemTemplate>
+                                                                                    <asp:TextBox ID="tbsalpris" runat="server" Text='<%# Eval("salpric")%>' placeholder="Enter Price..." style="width:70px; height:20px;" AutoPostBack="true" OnTextChanged="tbsalpris_TextChanged" ></asp:TextBox>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>                   
+                                                                            <asp:TemplateField HeaderText="QUANTITY">
+                                                                                <ItemTemplate>
+                                                                                    <asp:TextBox ID="TBItmQty" runat="server" Text='<%# Eval("QTY")%>' placeholder="Enter Quantity..." ValidationGroup="val_Psal" style="width:70px; height:20px;" AutoPostBack="true" OnTextChanged="TBItmQty_TextChanged" ></asp:TextBox>
+                                                                                    <asp:Label ID="lblchkqty" ForeColor="Red"  Font-Size="X-Small" runat="server"></asp:Label>
 
-                                                                            <asp:RequiredFieldValidator ID="RFVQty" ForeColor="Red" ValidationGroup="val_Psal" runat="server" Font-Size="Smaller" ErrorMessage="Please Write Some in Quantity" ControlToValidate="TBItmQty"></asp:RequiredFieldValidator>
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>                                                                     
-                                                                    <asp:TemplateField HeaderText="TOTAL">
-                                                                        <ItemTemplate>    
-                                                                            <asp:Label ID="lbl_Flag"  runat="server" Text="0" Visible="false"  />
-                                                                            <asp:Label ID="lblttl"  runat="server" Text='<%# Eval("TTL")%>'  ></asp:Label>
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>   
-                                                                    <asp:TemplateField HeaderText="SUB TOTAL" Visible="false">
-                                                                        <ItemTemplate>    
-                                                                            <asp:Label ID="lblsubttl"  runat="server" Text='<%# Eval("TTL")%>'  ></asp:Label>
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>     
-                                                                    <asp:TemplateField>                                                
-                                                                        <ItemTemplate>
-                                                                            <asp:LinkButton ID="lnkbtnadd" ValidationGroup="gvItems" CommandName="Add" onkeydown="esc();"  OnClick="linkbtnadd_Click" runat="server"><i class="halflings-icon plus-sign" ></i></asp:LinkButton>
-                                                                            <asp:HiddenField ID="HFDSal" runat="server" Value='<%# Eval("Dposid")%>' />
-                                                                            <asp:HiddenField ID="HFPROID" runat="server" Value='<%# Eval("ProductID")%>'  />
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>                                     
-                                                                    <asp:CommandField ShowDeleteButton="True" DeleteText="-"  >
-                                                                        <ControlStyle CssClass="halflings-icon minus-sign" />
-                                                                    </asp:CommandField>
-                                                                </Columns>
-                                                                <EmptyDataTemplate>No Record Available</EmptyDataTemplate> 
-                                                            </asp:GridView>
+                                                                                    <asp:RequiredFieldValidator ID="RFVQty" ForeColor="Red" ValidationGroup="val_Psal" runat="server" Font-Size="Smaller" ErrorMessage="Please Write Some in Quantity" ControlToValidate="TBItmQty"></asp:RequiredFieldValidator>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>                                                                     
+                                                                            <asp:TemplateField HeaderText="TOTAL">
+                                                                                <ItemTemplate>    
+                                                                                    <asp:Label ID="lbl_Flag"  runat="server" Text="0" Visible="false"  />
+                                                                                    <asp:Label ID="lblttl"  runat="server" Text='<%# Eval("TTL")%>'  ></asp:Label>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>   
+                                                                            <asp:TemplateField HeaderText="SUB TOTAL" Visible="false">
+                                                                                <ItemTemplate>    
+                                                                                    <asp:Label ID="lblsubttl"  runat="server" Text='<%# Eval("TTL")%>'  ></asp:Label>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>     
+                                                                            <asp:TemplateField>                                                
+                                                                                <ItemTemplate>
+                                                                                    <asp:LinkButton ID="lnkbtnadd" ValidationGroup="gvItems" CommandName="Add" onkeydown="esc();"  OnClick="linkbtnadd_Click" runat="server"><i class="halflings-icon plus-sign" ></i></asp:LinkButton>
+                                                                                    <asp:HiddenField ID="HFDSal" runat="server" Value='<%# Eval("Dposid")%>' />
+                                                                                    <asp:HiddenField ID="HFPROID" runat="server" Value='<%# Eval("ProductID")%>'  />
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>                                     
+                                                                            <asp:CommandField ShowDeleteButton="True" DeleteText="-"  >
+                                                                                <ControlStyle CssClass="halflings-icon minus-sign" />
+                                                                            </asp:CommandField>
+                                                                        </Columns>
+                                                                        <EmptyDataTemplate>No Record Available</EmptyDataTemplate> 
+                                                                    </asp:GridView>
+                                                                
                                                             </div>
+                                                             
                                                             <div class="span11">
                                                                 <table class="table table-striped table-bordered">
                                                                     <tr>
@@ -372,6 +375,8 @@
                                                                     </tr>
                                                                 </table>
                                                             </div>
+
+                                                           
                                                             <div class="control-group span12">
                                                                 
                                                             <table class="table table-bordered" style=" float:right; text-align:right; margin-right:20px;">
@@ -437,6 +442,7 @@
                                                                     </tr>
                                                                 </table>
                                                             </div>
+
                                                         </div>
                                                         <div class="span3">
                                                             <div class="scrollit_">
