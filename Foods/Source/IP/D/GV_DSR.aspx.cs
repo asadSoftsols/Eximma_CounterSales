@@ -43,9 +43,9 @@ namespace Foods
                         con.Close();                        
                     }
                     con.Open();
-
-                    SqlDataAdapter da = new SqlDataAdapter(" select distinct(Adv) as Adv ,ttl as Amt,tbl_DCPos.bal as bal,RecieverNam,tbl_MCPos.BillNo   from tbl_MCPos inner join tbl_DCPos on tbl_MCPos.MCposid = tbl_DCPos.MCposid " +
-                        " inner join Products on tbl_DCPos.ProductID = Products.ProductID where billdat between'" + DSRFDat + "' and '" + DSRTDat + "' and Products.CompanyId='" + Session["CompanyID"] + "' and Products.BranchId='" + Session["BranchID"] + "' and Iscancel <> 1", con);
+                    query = " select distinct(Adv) as Adv ,Amt as Amt,tbl_DCPos.bal as bal,RecieverNam,tbl_MCPos.BillNo   from tbl_MCPos inner join tbl_DCPos on tbl_MCPos.MCposid = tbl_DCPos.MCposid " +
+                        " inner join Products on tbl_DCPos.ProductID = Products.ProductID where billdat between'" + DSRFDat + "' and '" + DSRTDat + "' and Products.CompanyId='" + Session["CompanyID"] + "' and Products.BranchId='" + Session["BranchID"] + "' and Iscancel <> 1";
+                    SqlDataAdapter da = new SqlDataAdapter(query, con);
 
                     DataSet ds = new DataSet();
                     da.Fill(ds, "tbl_MCPos");
