@@ -43,8 +43,11 @@ namespace Foods
                         con.Close();                        
                     }
                     con.Open();
-                    query = " select distinct(Adv) as Adv ,Amt as Amt,tbl_DCPos.bal as bal,RecieverNam,tbl_MCPos.BillNo   from tbl_MCPos inner join tbl_DCPos on tbl_MCPos.MCposid = tbl_DCPos.MCposid " +
-                        " inner join Products on tbl_DCPos.ProductID = Products.ProductID where billdat between'" + DSRFDat + "' and '" + DSRTDat + "' and Products.CompanyId='" + Session["CompanyID"] + "' and Products.BranchId='" + Session["BranchID"] + "' and Iscancel <> 1";
+                    query = "select RecieverNam as [RecieverNam], tbl_MCPos.BillNo as [BillNo], sum(Amt) as [Total], Adv as [AmountRecieve]  from tbl_MCPos inner join tbl_DCPos on tbl_MCPos.MCposid = tbl_DCPos.MCposid where billdat between '" + DSRFDat + "' and '" + DSRTDat + "' and tbl_MCPos.CompanyId='" + Session["CompanyID"] + "' and tbl_MCPos.BranchId='" + Session["BranchID"] + "'  and Iscancel <> 1 group by Adv,tbl_MCPos.BillNo, RecieverNam ";
+
+                    //query = " select distinct(Adv) as Adv ,Amt as Amt,tbl_DCPos.bal as bal,RecieverNam,tbl_MCPos.BillNo   from tbl_MCPos inner join tbl_DCPos on tbl_MCPos.MCposid = tbl_DCPos.MCposid " +
+                      //  " inner join Products on tbl_DCPos.ProductID = Products.ProductID where billdat between'" + DSRFDat + "' and '" + DSRTDat + "' and Products.CompanyId='" + Session["CompanyID"] + "' and Products.BranchId='" + Session["BranchID"] + "' and Iscancel <> 1";
+
                     SqlDataAdapter da = new SqlDataAdapter(query, con);
 
                     DataSet ds = new DataSet();
@@ -52,7 +55,7 @@ namespace Foods
 
                     if (ds.Tables["tbl_MCPos"].Rows.Count > 0)
                     {
-                        Amt = ds.Tables["tbl_MCPos"].Rows[0]["Amt"].ToString();
+                        Amt = ds.Tables["tbl_MCPos"].Rows[0]["Total"].ToString();
                         //dis = ds.Tables["tbl_MCPos"].Rows[0]["dis"].ToString();
 
                         //if (dis != "0" || dis != "" || dis != "NULL")
